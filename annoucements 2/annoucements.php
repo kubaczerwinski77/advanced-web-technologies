@@ -41,63 +41,30 @@ function admin_page() {
         echo'<div class="notice notice-error is-dismissible"><p>Advertisement has been deleted.</p></div>';    
     } 
 
-?>
-<div style="display: flex; padding: 20px;">
-   <div style="display: flex; flex-direction: column;">
-      <form method="post">
-         <p style="font-size: 20px; font-weight: bold; margin-bottom: 5px;"
-            >Advertisement title:</p>
-         <input class="ad_title_input" type="text" name="ad_title" />
-         <p style="font-size: 20px; font-weight: bold; margin-bottom: 5px;"
-            >Advertisement content:</p>
-         <textarea style="height: 100px; width: 400px; resize: none;" type="text" name="ad_content"></textarea>
-         <br/>
-         <button style="
-            padding: 5px 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer;
-            " type="submit">Add</button>
-      </form>
-   </div>
-   <div style="width: 100px;">
-   </div>
-   <div style="display: flex; flex-direction: column;">
-      <p style="font-size: 20px; font-weight: bold; margin-bottom: 0;">Your ads:</p>
-      <br/>
-      <?php foreach ($adsArr as $title => $content): ?>
+    ?>
+    <div class="admin-container">
         <form method="post">
-            <div style="
-                display: flex;
-                background-color: #fcfcfc;
-                border-radius: 8px;
-                align-items: center;
-                justify-content: space-between;
-                margin-bottom: 20px;
-                padding: 0 20px;
-                width: 500px;
-                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            ">
-                <div style="display: flex; flex-direction: column;">
-                <p style="margin-bottom: 0; font-size: 1.2rem;"><?php echo $title; ?></p>
-                <p style="
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    line-clamp: 3;
-                    max-width: 260px;
-                    "><?php echo $content; ?></p>
-                </div>
-                <input type="hidden" name="delete_title" value="<?php echo $title; ?>" />
-                <button style="padding: 5px 15px; border-radius: 5px; cursor: pointer;" type="submit">Delete</button>
-            </div>
+            <p class="ad_label">Advertisement title:</p>
+            <input class="ad_title_input" type="text" name="ad_title" />
+            <p class="ad_label">Advertisement content:</p>
+            <textarea class="ad_content_input" type="text" name="ad_content"></textarea>
+            <button class="submit_button" type="submit">Add</button>
         </form>
-      <?php endforeach; ?>    
-   </div>
-</div>
-<?php
+        <div class="list-wrapper">
+            <p>Your ads:</p>
+            <?php foreach ($adsArr as $title => $content) : ?>
+                <form method="post">
+                    <div class="item">
+                        <p class="item-title"><?php echo $title ?></p>
+                        <p class="item-desc"><?php echo $content ?></p>
+                        <input type="hidden" name="delete_title" value="<?php echo $title ?>" />
+                        <button class="delete_button" type="submit">Delete</button>
+                    </div>
+                </form>
+            <?php endforeach ?>    
+        </div>
+    </div>
+    <?php
 }
 
 function random_advertisement($content){

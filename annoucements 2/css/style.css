@@ -1,0 +1,105 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f5eb;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 20px;
+}
+
+.image {
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+
+.title {
+  font-weight: "500";
+}
+
+.desc {
+  font-size: 15px;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ad_label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.ad_title_input {
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  padding: 5px;
+}
+
+.ad_content_input {
+  width: 250px;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  padding: 5px;
+}
+
+.submit_button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  background-color: #f7f5eb;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f5eb;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.item-title {
+  font-weight: 500;
+}
+
+.item-desc {
+  font-size: 15px;
+}
+
+.delete_button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  background-color: #f7f5eb;
+  font-weight: 500;
+  cursor: pointer;
+}
