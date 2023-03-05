@@ -102,13 +102,13 @@ function admin_page() {
 
 function random_advertisement($content){
     $adsArr  =  is_array(get_option('advertisements')) ? get_option('advertisements') : [];
-    $title = array_rand($adsArr);
-    $content = $adsArr[$title];
+    $ad_title = array_rand($adsArr);
+    $ad_content = $adsArr[$ad_title];
 
     return "<div class=\"wrapper\">
         <div class=\"content_container\">
-            <p class=\"title\">$title</p>
-            <p class=\"desc\">$content</p>
+            <p class=\"title\">$ad_title</p>
+            <p class=\"desc\">$ad_content</p>
         </div>
         <img class=\"image\" src=\"https://picsum.photos/250/150\" />
     </div>".$content;
