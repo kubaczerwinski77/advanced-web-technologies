@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f5eb;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 20px;
+}
+
+.image {
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+}
+
+.title {
+  font-weight: "500";
+}
+
+.desc {
+  font-size: 15px;
+}
