@@ -5,3 +5,9 @@
 @import "components/sectionWrapper";
 @import "components/contentCard";
 @import "components/tiles";
+
+@import "pages/lista2";
+
+main {
+    @extend %rows-center;
+  }

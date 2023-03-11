@@ -156,13 +156,13 @@ img {
   position: absolute;
   z-index: -1;
   opacity: 100%;
-  transition: opacity 1s ease-in-out, height 1s ease-in-out;
+  transition: opacity 1s ease-in, height 1s ease-in;
 }
 .subsite .caption {
   position: absolute;
-  bottom: -30px;
+  bottom: -60px;
   right: 1em;
-  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in;
   text-align: center;
   font-weight: bold;
 }
@@ -172,7 +172,7 @@ img {
   height: 80%;
 }
 .subsite:hover:not(.maximize) .caption {
-  transform: translateY(-30px);
+  transform: translateY(-50px);
 }
 
 .pyramid:nth-child(1) .pyramid-image {
@@ -252,11 +252,6 @@ header {
   align-items: center;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-}
-
 header {
   gap: 1em;
   color: green;
@@ -271,10 +266,10 @@ header {
 
 footer {
   gap: 1em;
+  text-align: right;
   color: black;
-  text-align: center;
   transform: translateY(100px);
-  font-weight: 550;
+  font-weight: 220;
 }
 
 .subsites-container {

@@ -21,14 +21,14 @@
     position: absolute;
     z-index: -1;
     opacity: 100%;
-    transition: opacity 1s ease-in, height 1s ease-in;
+    transition: opacity 1s ease-in-out, height 1s ease-in-out;
   }
 
   .caption {
     position: absolute;
-    bottom: -60px;
+    bottom: -30px;
     right: 1em;
-    transition: transform 1s ease-in;
+    transition: transform 1s ease-in-out;
     text-align: center;
     font-weight: bold;
   }
@@ -41,7 +41,7 @@
   }
   
   .caption {
-    transform: translateY(-50px);
+    transform: translateY(-30px);
   }
 }
 
