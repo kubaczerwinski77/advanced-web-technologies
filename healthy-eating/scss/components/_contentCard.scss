@@ -1,0 +1,42 @@
+.card {
+  @include flex(flex-start, left, column, wrap);
+  gap: 1rem;
+  max-width: 400px;
+  background-color: $color-white;
+  padding: 3rem 1rem;
+  box-shadow: $shadow-small;
+  position: absolute;
+  bottom: 5%;
+  left: 20%;
+
+  .title {
+    @include text(1.5rem, 400, $color-black);
+  }
+
+  .content {
+    @include text(1rem, 300, $color-black);
+    line-height: 1.5rem;
+  }
+
+  .link {
+    @include text(1rem, 300, $color-primary);
+  }
+
+  .button {
+    width: fit-content;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    background-color: $color-primary;
+    border-radius: $radius-button;
+    border: none;
+    cursor: pointer;
+    color: $color-black;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+  }
+}

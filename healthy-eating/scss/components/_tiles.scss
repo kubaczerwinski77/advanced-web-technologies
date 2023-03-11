@@ -1,0 +1,19 @@
+.image-tile {
+  @include tile(800px, 600px);
+  background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2288&q=80);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.primary-tile {
+  @include tile(300px, 600px, -2);
+  top: 10%;
+  right: 22%;
+}
+
+.secondary-tile {
+  @include tile(700px, 450px, -2);
+  bottom: 13%;
+  left: 17%;
+}

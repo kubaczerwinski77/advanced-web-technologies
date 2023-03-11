@@ -1,0 +1,6 @@
+.section-wrapper {
+  @include flex(center, center);
+  margin: auto;
+  width: 80vw;
+  height: 100vh;
+}

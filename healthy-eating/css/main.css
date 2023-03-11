@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #faedcd;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eaeaea;
+}
+
+img {
+  max-width: 100%;
+}
+
+.section-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: auto;
+  width: 80vw;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 400px;
+  background-color: #f3f3f3;
+  padding: 3rem 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: absolute;
+  bottom: 5%;
+  left: 20%;
+}
+.card .title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #080808;
+}
+.card .content {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #080808;
+  line-height: 1.5rem;
+}
+.card .link {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #ccd5ae;
+}
+.card .button {
+  width: fit-content;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  background-color: #ccd5ae;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  color: #080808;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+.card .button:hover {
+  background-color: #e9edc9;
+}
+
+.image-tile {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-color: #ccd5ae;
+  z-index: -1;
+  background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2288&q=80);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.primary-tile {
+  position: absolute;
+  width: 300px;
+  height: 600px;
+  background-color: #ccd5ae;
+  z-index: -1;
+  top: 10%;
+  right: 22%;
+}
+
+.secondary-tile {
+  position: absolute;
+  width: 700px;
+  height: 450px;
+  background-color: #ccd5ae;
+  z-index: -1;
+  bottom: 13%;
+  left: 17%;
+}
+
+/*# sourceMappingURL=main.css.map */
