@@ -1,0 +1,19 @@
+@mixin set-size($width, $height) {
+    width: $width;
+    height: $height;
+  }
+
+@mixin set-image($name) {
+    background-image: url("../images/#{$name}");
+    background-size: cover;
+    background-position: center;
+  } 
+  
+@mixin set-font($color, $font) 
+{
+    color : $color;
+    font-family: $font;
+}
+
+
+

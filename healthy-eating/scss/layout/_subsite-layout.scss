@@ -1,0 +1,11 @@
+.subsites-container{
+    transform: translateY(50px);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+.pyramid-container{
+    top: 1.5%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+  }  
