@@ -1,0 +1,44 @@
+.transparent-card {
+  @include flex(flex-start, left, column, wrap);
+  gap: 1rem;
+  max-width: 400px;
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 10%;
+
+  .title {
+    @include text(2rem, 400, $color-black);
+  }
+
+  .content {
+    @include text(1rem, 300, $color-black);
+    line-height: 2rem;
+  }
+
+  .link {
+    @include text(1rem, 300, $color-black);
+    text-decoration: underline;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .button {
+    width: fit-content;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    background-color: $color-primary;
+    border-radius: $radius-button;
+    border: none;
+    cursor: pointer;
+    color: $color-black;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+
+    &:hover {
+      background-color: $color-tertiary;
+    }
+  }
+}

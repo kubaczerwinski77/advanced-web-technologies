@@ -1,19 +1,35 @@
 .image-tile {
-  @include tile(800px, 600px);
-  background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2288&q=80);
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  @include imageTile(
+    "https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2288&q=80",
+    70%,
+    60%
+  );
+}
+
+.hero-image-tile {
+  @include imageTile(
+    "https://images.unsplash.com/photo-1526718583451-e88ebf774771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+    500px,
+    700px
+  );
+  top: 10%;
+  right: 20%;
+}
+
+.hero-tile {
+  @include tile(500px, 550px, -2);
+  bottom: 10%;
+  right: 15%;
 }
 
 .primary-tile {
   @include tile(300px, 600px, -2);
   top: 10%;
-  right: 22%;
+  right: 10%;
 }
 
 .secondary-tile {
-  @include tile(700px, 450px, -2);
+  @include tile(50%, 450px, -2);
   bottom: 13%;
-  left: 17%;
+  left: 10%;
 }

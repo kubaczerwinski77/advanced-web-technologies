@@ -39,6 +39,7 @@ img {
   margin: auto;
   width: 80vw;
   height: 100vh;
+  position: relative;
 }
 
 .card {
@@ -89,16 +90,88 @@ img {
   background-color: #e9edc9;
 }
 
+.transparent-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 400px;
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 10%;
+}
+.transparent-card .title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #080808;
+}
+.transparent-card .content {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #080808;
+  line-height: 2rem;
+}
+.transparent-card .link {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #080808;
+  text-decoration: underline;
+}
+.transparent-card .link:hover {
+  color: #ccd5ae;
+}
+.transparent-card .button {
+  width: fit-content;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  background-color: #ccd5ae;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  color: #080808;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+.transparent-card .button:hover {
+  background-color: #fefae0;
+}
+
 .image-tile {
   position: absolute;
-  width: 800px;
-  height: 600px;
+  width: 70%;
+  height: 60%;
   background-color: #ccd5ae;
   z-index: -1;
-  background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2288&q=80);
   background-size: cover;
   background-position: center;
-  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2288&q=80");
+}
+
+.hero-image-tile {
+  position: absolute;
+  width: 500px;
+  height: 700px;
+  background-color: #ccd5ae;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1526718583451-e88ebf774771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80");
+  top: 10%;
+  right: 20%;
+}
+
+.hero-tile {
+  position: absolute;
+  width: 500px;
+  height: 550px;
+  background-color: #ccd5ae;
+  z-index: -1;
+  bottom: 10%;
+  right: 15%;
 }
 
 .primary-tile {
@@ -108,17 +181,17 @@ img {
   background-color: #ccd5ae;
   z-index: -1;
   top: 10%;
-  right: 22%;
+  right: 10%;
 }
 
 .secondary-tile {
   position: absolute;
-  width: 700px;
+  width: 50%;
   height: 450px;
   background-color: #ccd5ae;
   z-index: -1;
   bottom: 13%;
-  left: 17%;
+  left: 10%;
 }
 
 /*# sourceMappingURL=main.css.map */

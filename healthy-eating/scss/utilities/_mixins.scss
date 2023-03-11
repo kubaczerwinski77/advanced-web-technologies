@@ -24,6 +24,19 @@
   z-index: -1;
 }
 
+@mixin imageTile(
+  $bgUrl,
+  $width: 500px,
+  $height: 500px,
+  $z-index: -1,
+  $bg-color: $color-primary
+) {
+  @include tile($width, $height, $z-index, $bg-color);
+  background-size: cover;
+  background-position: center;
+  background-image: url($bgUrl);
+}
+
 @mixin text($size: 1rem, $weight: 400, $color: $black) {
   font-size: $size;
   font-weight: $weight;
