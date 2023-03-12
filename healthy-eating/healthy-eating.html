@@ -4,15 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
+    <script src="js/index.js"></script>
     <title>Healthy eating</title>
   </head>
   <body>
-    <!-- <section>
+    <section>
       <div class="section-wrapper">
-        <div class="secondary-tile"></div>
-        <div class="primary-tile"></div>
-        <div class="image-tile"></div>
-        <div class="card">
+        <div class="secondary-tile" data-animation="slideInRight"></div>
+        <div class="primary-tile" data-animation="slideInLeft"></div>
+        <div
+          class="image-tile"
+          data-animation="slideInDown"
+          data-animation-delay="200ms"
+        ></div>
+        <div
+          class="card"
+          data-animation="slideInUp"
+          data-animation-delay="200ms"
+        >
           <p class="title">Healthy Eating</p>
           <p class="content">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -29,9 +38,13 @@
     </section>
     <section>
       <div class="section-wrapper">
-        <div class="hero-tile"></div>
-        <div class="hero-image-tile"></div>
-        <div class="transparent-card">
+        <div class="hero-tile" data-animation="slideInLeft"></div>
+        <div
+          class="hero-image-tile"
+          data-animation="slideInDown"
+          data-animation-delay="200ms"
+        ></div>
+        <div class="transparent-card" data-animation="slideInRight">
           <p class="title">Get active and be a healthy weight</p>
           <p class="content">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
@@ -47,14 +60,18 @@
           <button class="button">Learn more</button>
         </div>
       </div>
-    </section> -->
+    </section>
     <section>
       <div class="section-wrapper">
-        <div class="rules-tile"></div>
+        <div class="rules-tile" data-animation="slideInDown"></div>
         <div class="rules">
-          <div class="image"></div>
+          <div class="image" data-animation="slideInRight"></div>
           <div class="rules-container">
-            <div class="rule">
+            <div
+              class="rule"
+              data-animation="slideInLeft"
+              data-animation-delay="100ms"
+            >
               <img src="assets/svg/apple.svg" class="svg" />
               <div class="content-divider">
                 <p class="title">Eat lots of fruit and veg</p>
@@ -65,7 +82,11 @@
                 </p>
               </div>
             </div>
-            <div class="rule">
+            <div
+              class="rule"
+              data-animation="slideInLeft"
+              data-animation-delay="200ms"
+            >
               <img src="assets/svg/fastfood.svg" class="svg" />
               <div class="content-divider">
                 <p class="title">No fast food</p>
@@ -78,7 +99,11 @@
                 </p>
               </div>
             </div>
-            <div class="rule">
+            <div
+              class="rule"
+              data-animation="slideInLeft"
+              data-animation-delay="300ms"
+            >
               <img src="assets/svg/soup.svg" class="svg" />
               <div class="content-divider">
                 <p class="title">Soup may help you lose weight</p>
