@@ -33,3 +33,7 @@
   bottom: 13%;
   left: 10%;
 }
+
+.rules-tile {
+  @include tile(400px, 750px, -2);
+}

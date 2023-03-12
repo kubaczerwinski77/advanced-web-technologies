@@ -37,7 +37,7 @@
   background-image: url($bgUrl);
 }
 
-@mixin text($size: 1rem, $weight: 400, $color: $black) {
+@mixin text($size: 1rem, $weight: 400, $color: $color-black) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
