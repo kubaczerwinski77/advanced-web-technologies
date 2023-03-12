@@ -1,0 +1,47 @@
+@for $index from 1 through length($pyramid-image) {
+    .pyramid:nth-child(#{$index}) .pyramid-image {
+      @include set-image(nth($pyramid-image, $index));
+    }
+  }
+
+
+.pyramid {
+    @include set-size(300px, 300px);
+    border-radius: 10px;
+    margin: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 12px $shadow-color;
+    position: relative;
+    overflow: hidden;
+  
+    .pyramid-image {
+      @include set-size(100%, 100%);
+      position: absolute;
+      z-index: -1;
+      opacity: 100%;
+      transition: opacity 1s ease-in-out, height 1s ease-in-out;
+    }
+  
+    .pyramid-caption {
+      position: absolute;
+      bottom: -220px;
+      right: 1em;
+      transition: transform 1s ease-in-out;
+      text-align: right;
+      overflow: hidden;
+      text-align: center;
+    }
+  }
+  
+  .pyramid:hover{
+    .pyramid-image {
+      opacity: 10%;
+    }
+    
+    .pyramid-caption {
+      transform: translateY(-220px);
+    }
+  }
+  
+  
+  

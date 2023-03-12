@@ -1,0 +1,13 @@
+@import "../helpers/functions";
+@import "../helpers/placeholders";
+@import "../helpers/mixins";
+
+header {
+  @extend %rows-center-center;
+  gap: 1em;
+  @include set-font(green, $font-stack);
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  @include set-size(100%, 250px);
+  @include set-image($main-image);
+  
+}

@@ -1,0 +1,175 @@
+@charset "UTF-8";
+.subsite:nth-child(1) .subsite-image {
+  background-image: url("../assets/img/piramida-พywienia.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.subsite:nth-child(2) .subsite-image {
+  background-image: url("../assets/img/warzywa.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.subsite:nth-child(3) .subsite-image {
+  background-image: url("../assets/img/jedzenie.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.subsite {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 1em;
+  cursor: pointer;
+  box-shadow: 0 0 12px green;
+  position: relative;
+  overflow: hidden;
+}
+.subsite .subsite-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 100%;
+  transition: opacity 1s ease-in, height 1s ease-in;
+}
+.subsite .caption {
+  position: absolute;
+  bottom: -60px;
+  right: 1em;
+  transition: transform 1s ease-in;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subsite:hover .subsite-image {
+  opacity: 100%;
+  height: 80%;
+}
+.subsite:hover .caption {
+  transform: translateY(-50px);
+}
+
+.pyramid:nth-child(1) .pyramid-image {
+  background-image: url("../assets/img/orzechy.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid:nth-child(2) .pyramid-image {
+  background-image: url("../assets/img/ryby.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid:nth-child(3) .pyramid-image {
+  background-image: url("../assets/img/mleko.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid:nth-child(4) .pyramid-image {
+  background-image: url("../assets/img/prdukty-zbozowe.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid:nth-child(5) .pyramid-image {
+  background-image: url("../assets/img/warzywa.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid:nth-child(6) .pyramid-image {
+  background-image: url("../assets/img/aktywnosc.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.pyramid {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 1em;
+  cursor: pointer;
+  box-shadow: 0 0 12px green;
+  position: relative;
+  overflow: hidden;
+}
+.pyramid .pyramid-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 100%;
+  transition: opacity 1s ease-in-out, height 1s ease-in-out;
+}
+.pyramid .pyramid-caption {
+  position: absolute;
+  bottom: -220px;
+  right: 1em;
+  transition: transform 1s ease-in-out;
+  text-align: right;
+  overflow: hidden;
+  text-align: center;
+}
+
+.pyramid:hover .pyramid-image {
+  opacity: 10%;
+}
+.pyramid:hover .pyramid-caption {
+  transform: translateY(-220px);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  gap: 1em;
+  color: green;
+  font-family: Helvetica, sans-serif;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  width: 100%;
+  height: 250px;
+  background-image: url("../assets/img/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  gap: 1em;
+  text-align: right;
+  color: black;
+  transform: translateY(100px);
+  font-weight: 550;
+}
+
+.subsites-container {
+  transform: translateY(50px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pyramid-container {
+  top: 1.5%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+body {
+  background-color: white;
+  opacity: 80;
+  font-family: Helvetica, sans-serif;
+}
+
+/*# sourceMappingURL=main.css.map */
