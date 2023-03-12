@@ -33,7 +33,7 @@
     }
   }
   
-  .pyramid:hover:not(.maximize) {
+  .pyramid:hover{
     .pyramid-image {
       opacity: 10%;
     }
