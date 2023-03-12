@@ -6,7 +6,7 @@
 }
 
 .subsite:nth-child(2) .subsite-image {
-  background-image: url("../assets/img/warzywa.jpg");
+  background-image: url("../assets/img/jedzenie.jpg");
   background-size: cover;
   background-position: center;
 }
