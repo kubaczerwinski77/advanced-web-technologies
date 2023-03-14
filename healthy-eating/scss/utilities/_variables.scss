@@ -9,6 +9,14 @@ $color-black: #080808;
 $animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 $animation-duration: 1s;
 
+$shadow-color: green;
 $shadow-small: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 $radius-button: 0.5rem;
+
+$main-image: "../images/background.jpg";
+$under-main-image: "../images/piramida-żywienia.jpg", "../images/warzywa.jpg",
+  "../images/jedzenie.jpg";
+$pyramid-image: "../images/orzechy.jpg", "../images/ryby.jpg",
+  "../images/mleko.jpg", "../images/prdukty-zbozowe.jpg",
+  "../images/warzywa.jpg", "../images/aktywnosc.png";
