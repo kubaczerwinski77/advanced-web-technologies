@@ -13,11 +13,11 @@
 @import "../layout/subsite-layout";
 
 body {
-  background-color: white;
   opacity: 80;
   font-family: $font-stack;
 }
 
 main {
   @extend %rows-center;
+  background-color: white;
 }
