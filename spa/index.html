@@ -18,6 +18,7 @@
     />
     <link rel="stylesheet" href="css/mdb.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
   <body>
     <header>
@@ -111,6 +112,10 @@
                 commodi dignissimos obcaecati illum maiores corporis. Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Facilis
                 consequatur eligendi quisquam doloremque vero ex debitis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                consequatur eligendi quisquam doloremque vero ex debitis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                consequatur eligendi quisquam doloremque vero ex debitis.
               </p>
             </div>
           </div>
@@ -159,9 +164,9 @@
                 <div
                   class="carousel-caption d-none d-md-block position-absolute top-0"
                 >
-                  <h5>First slide label</h5>
+                  <h5>Forest</h5>
                   <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    Complex ecological system in which trees are the dominant life-form
                   </p>
                 </div>
               </div>
@@ -176,9 +181,9 @@
                 <div
                   class="carousel-caption d-none d-md-block position-absolute top-0"
                 >
-                  <h5>Second slide label</h5>
+                  <h5>Praque</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    is the capital and largest city in the Czech Republic
                   </p>
                 </div>
               </div>
@@ -193,9 +198,9 @@
                 <div
                   class="carousel-caption d-none d-md-block position-absolute top-0"
                 >
-                  <h5>Second slide label</h5>
+                  <h5>Barcelona</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    is the capital and largest city in Spain
                   </p>
                 </div>
               </div>
@@ -271,115 +276,131 @@
         </section>
 
         <hr class="my-5" />
+        
+        
+        
+        <div class="row">
+          <h2 class="text-center mb-4">FIND US</h2>
+        </div>
+        <section class="d-flex justify-content-center">
+          <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Barcelona+Spain"  width="600" height="450" 
+          frameborder="1" style="border:0" allowfullscreen></iframe>
+        </section>
 
-        <!-- Accordion -->
+      
+        <hr class="my-5" />
+
         <section>
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-mdb-toggle="collapse"
-                  data-mdb-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  Accordion Item #1
-                </button>
-              </h2>
-              <div
-                id="collapseOne"
-                class="accordion-collapse collapse show"
-                aria-labelledby="headingOne"
-                data-mdb-parent="#accordionExample"
-              >
-                <div class="accordion-body">
-                  <strong>This is the first item's accordion body.</strong> It
-                  is hidden by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also
-                  worth noting that just about any HTML can go within the
-                  <strong>.accordion-body</strong>, though the transition does
-                  limit overflow.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-mdb-toggle="collapse"
-                  data-mdb-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  Accordion Item #2
-                </button>
-              </h2>
-              <div
-                id="collapseTwo"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingTwo"
-                data-mdb-parent="#accordionExample"
-              >
-                <div class="accordion-body">
-                  <strong>This is the second item's accordion body.</strong> It
-                  is hidden by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also
-                  worth noting that just about any HTML can go within the
-                  <strong>.accordion-body</strong>, though the transition does
-                  limit overflow.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-mdb-toggle="collapse"
-                  data-mdb-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Accordion Item #3
-                </button>
-              </h2>
-              <div
-                id="collapseThree"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingThree"
-                data-mdb-parent="#accordionExample"
-              >
-                <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It
-                  is hidden by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also
-                  worth noting that just about any HTML can go within the
-                  <strong>.accordion-body</strong>, though the transition does
-                  limit overflow.
-                </div>
+          <div class="row">
+            <h3 class="text-center mb-4" id="demo" style="border:2; color:rgb(53, 61, 110)" onclick="myFunction()">Click to see the most visited places</h3>
+
+             <script>
+                function myFunction() {
+                  new Chart("horizontalBar", {
+                      type: "horizontalBar",
+                      data: {
+                          labels: ["Barcelona", "Paris", "New York", "Amsterdam", "Madryt"] ,
+                          datasets: [{
+                              backgroundColor:  ["rgb(53, 61, 110)", "rgb(16, 110, 51)",
+                              "rgb(94, 125, 120)", "rgb(109, 125, 107)", "rgb(125, 92, 85)"],
+                              data: [105, 122, 70, 53, 86],
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                        scales: {
+                                "xAxes": [{
+                                   "ticks": {
+                                    "beginAtZero": true
+                                    }
+                                  }]
+                                },
+                          title: {
+                              display: true,
+                          }
+                      }
+                  });
+                  }
+             </script>
+          </div>
+          <div class="container d-flex justify-content-center">
+              <canvas id="horizontalBar" style="width:100px;width:150px"></canvas>
+              
+
+          </div>
+      </section>
+      
+      <hr class="my-5" />
+        
+      <section>
+        <div class="container">
+        <h1>FAQ</h1>
+        <div class="accordion w-100" id="basicAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#basicAccordionCollapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Question 
+              </button>
+            </h2>
+            <div id="basicAccordionCollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-mdb-parent="#basicAccordion" style="">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                consequatur eligendi quisquam doloremque vero ex debitis
+                veritatis placeat unde animi laborum sapiente illo possimus,
+                commodi dignissimos obcaecati illum maiores corporis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.
               </div>
             </div>
           </div>
-        </section>
-
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#basicAccordionCollapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Question 
+              </button>
+            </h2>
+            <div id="basicAccordionCollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-mdb-parent="#basicAccordion" style="">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                consequatur eligendi quisquam doloremque vero ex debitis
+                veritatis placeat unde animi laborum sapiente illo possimus,
+                commodi dignissimos obcaecati illum maiores corporis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#basicAccordionCollapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Question 
+              </button>
+            </h2>
+            <div id="basicAccordionCollapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+              data-mdb-parent="#basicAccordion" style="">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                consequatur eligendi quisquam doloremque vero ex debitis
+                veritatis placeat unde animi laborum sapiente illo possimus,
+                commodi dignissimos obcaecati illum maiores corporis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>   
+  
+        
         <hr class="my-5" />
 
         <!--Section: Content-->
         <section class="mb-5">
           <h4 class="mb-5 text-center">
-            <strong>Facilis consequatur eligendi</strong>
+            <strong>Contact us</strong>
           </h4>
 
           <div class="row d-flex justify-content-center">
@@ -446,7 +467,7 @@
                 </div>
 
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">
+                <button type="submit" class="btn btn-dark  btn-block mb-4">
                   Sign up
                 </button>
 
@@ -455,28 +476,28 @@
                   <p>or sign up with:</p>
                   <button
                     type="button"
-                    class="btn btn-primary btn-floating mx-1"
+                    class="btn btn-dark btn-floating mx-1"
                   >
                     <i class="fab fa-facebook-f"></i>
                   </button>
 
                   <button
                     type="button"
-                    class="btn btn-primary btn-floating mx-1"
+                    class="btn btn-dark btn-floating mx-1"
                   >
                     <i class="fab fa-google"></i>
                   </button>
 
                   <button
                     type="button"
-                    class="btn btn-primary btn-floating mx-1"
+                    class="btn btn-dark btn-floating mx-1"
                   >
                     <i class="fab fa-twitter"></i>
                   </button>
 
                   <button
                     type="button"
-                    class="btn btn-primary btn-floating mx-1"
+                    class="btn btn-dark btn-floating mx-1"
                   >
                     <i class="fab fa-github"></i>
                   </button>
