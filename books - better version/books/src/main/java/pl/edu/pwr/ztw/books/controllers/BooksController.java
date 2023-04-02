@@ -4,12 +4,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import pl.edu.pwr.ztw.books.data.Authors;
 import pl.edu.pwr.ztw.books.models.Author;
 import pl.edu.pwr.ztw.books.models.Book;
+import pl.edu.pwr.ztw.books.services.AuthorService;
+import pl.edu.pwr.ztw.books.services.IAuthorService;
 import pl.edu.pwr.ztw.books.services.IBooksService;
 import pl.edu.pwr.ztw.books.validators.BookValidator;
 
+import java.util.ArrayList;
+
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 public class BooksController {
     @Autowired
     IBooksService booksService;
@@ -31,6 +37,7 @@ public class BooksController {
         if (BookValidator.isInValidBook(book.getTitle(), book.getPages(), book.getAuthor())) {
             return new ResponseEntity<>("Invalid data", HttpStatus.NOT_ACCEPTABLE);
         }
+
         return new ResponseEntity<>(booksService.updateBook(id,book), HttpStatus.OK);
     }
 
@@ -46,6 +53,7 @@ public class BooksController {
         if (BookValidator.isInValidBook(book.getTitle(), book.getPages(), book.getAuthor())) {
             return new ResponseEntity<>("Invalid data", HttpStatus.NOT_ACCEPTABLE);
         }
+      
         return new ResponseEntity<>(booksService.addBook(book), HttpStatus.OK);
     }
 }

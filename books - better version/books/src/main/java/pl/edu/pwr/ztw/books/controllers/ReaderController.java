@@ -14,6 +14,7 @@ import pl.edu.pwr.ztw.books.validators.BookValidator;
 import pl.edu.pwr.ztw.books.validators.ReaderValidator;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 public class ReaderController {
     @Autowired
     IReaderService readerService;

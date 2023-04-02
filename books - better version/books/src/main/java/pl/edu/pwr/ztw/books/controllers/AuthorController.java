@@ -8,6 +8,7 @@ import pl.edu.pwr.ztw.books.services.IAuthorService;
 import pl.edu.pwr.ztw.books.validators.AuthorValidator;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 public class AuthorController {
     IAuthorService authorService;
 
