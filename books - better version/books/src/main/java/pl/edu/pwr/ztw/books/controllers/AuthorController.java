@@ -30,7 +30,7 @@ public class AuthorController {
 
     @RequestMapping(value = "/authors/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Object> updateAuthor(@PathVariable("id") int id, @RequestBody Author author) {
-        if (AuthorValidator.isInvalidAuthor(author.getFirstName(), author.getLastName(), author.getAge())) {
+        if (AuthorValidator.isInvalidAuthor(author.getFirstName(), author.getLastName())) {
             return new ResponseEntity<>("Invalid data", HttpStatus.NOT_ACCEPTABLE);
         }
         return new ResponseEntity<>(authorService.updateAuthor(id, author), HttpStatus.OK);
@@ -45,7 +45,7 @@ public class AuthorController {
 
     @RequestMapping(value = "/authors", method = RequestMethod.POST)
     public ResponseEntity<Object> addAuthor(@RequestBody Author author) {
-        if (AuthorValidator.isInvalidAuthor(author.getFirstName(), author.getLastName(), author.getAge())) {
+        if (AuthorValidator.isInvalidAuthor(author.getFirstName(), author.getLastName())) {
             return new ResponseEntity<>("Invalid data", HttpStatus.NOT_ACCEPTABLE);
         }
         return new ResponseEntity<>(authorService.addAuthor(author), HttpStatus.OK);

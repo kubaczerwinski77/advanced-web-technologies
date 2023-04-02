@@ -33,7 +33,6 @@ public class AuthorService implements IAuthorService {
         }
         aut.setFirstName(author.getFirstName());
         aut.setLastName(author.getLastName());
-        aut.setAge(author.getAge());
         return aut;
     }
 
@@ -49,7 +48,7 @@ public class AuthorService implements IAuthorService {
 
     @Override
     public Author addAuthor(Author author) {
-        Author a = new Author( Authors.getAuthorsRepo().size() + 1,author.getFirstName(), author.getLastName(), author.getAge());
+        Author a = new Author( Authors.getAuthorsRepo().size() + 1,author.getFirstName(), author.getLastName());
         Authors.addAuthorToRepo(a);
         return a;
     }

@@ -10,9 +10,9 @@ public class Authors {
     private static List<Author> authorsRepo = new ArrayList<>();
 
     static {
-        authorsRepo.add(new Author(1, "Adam", "Mickiewicz", 45));
-        authorsRepo.add(new Author(2, "Anna", "Dunska", 24));
-        authorsRepo.add(new Author(3, "Iwo", "Bobu", 64));
+        authorsRepo.add(new Author(1, "Adam", "Mickiewicz"));
+        authorsRepo.add(new Author(2, "Anna", "Dunska"));
+        authorsRepo.add(new Author(3, "Henryk", "Sienkiewicz"));
     }
 
     public static List<Author> getAuthorsRepo() {

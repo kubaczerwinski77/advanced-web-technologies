@@ -1,6 +1,7 @@
 package pl.edu.pwr.ztw.books.data;
 
 
+import pl.edu.pwr.ztw.books.models.Author;
 import pl.edu.pwr.ztw.books.models.Book;
 
 import java.util.ArrayList;
@@ -10,9 +11,10 @@ public class Books {
     private static List<Book> booksRepo = new ArrayList<>();
 
     static {
-        booksRepo.add(new Book(1,"Potop", 936, new ArrayList<>(List.of(1))));
-        booksRepo.add(new Book(2,"Wesele", 150, new ArrayList<>(List.of(1,2))));
-        booksRepo.add(new Book(3,"Dziady", 292, new ArrayList<>(List.of(3))));
+        booksRepo.add(new Book(1,"Potop", 936, new ArrayList<>(List.of(new Author(1,"Adam", "Mickiewicz")))));
+        booksRepo.add(new Book(2,"Wesele", 150, new ArrayList<>(List.of(new Author(1,"Adam", "Mickiewicz"),
+                                                                                      new Author(2,"Anna", "Dunska")))));
+        booksRepo.add(new Book(3,"Dziady", 292, new ArrayList<>(List.of(new Author(3, "Henryk", "Sienkiewicz")))));
     }
 
     public static List<Book> getBooksRepo() {
