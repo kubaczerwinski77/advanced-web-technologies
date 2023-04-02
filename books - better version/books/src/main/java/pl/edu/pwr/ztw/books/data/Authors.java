@@ -28,6 +28,15 @@ public class Authors {
         return null;
     }
 
+    public static Author findBy(String name, String lastname) {
+        for (Author a: authorsRepo) {
+            if (a.getFirstName().equals(name) && a.getLastName().equals(lastname)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
     public static void setAuthorsRepo(List<Author> authorsRepo) {
         Authors.authorsRepo = authorsRepo;
     }

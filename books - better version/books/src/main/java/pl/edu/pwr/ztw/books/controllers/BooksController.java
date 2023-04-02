@@ -37,7 +37,22 @@ public class BooksController {
         if (BookValidator.isInValidBook(book.getTitle(), book.getPages(), book.getAuthor())) {
             return new ResponseEntity<>("Invalid data", HttpStatus.NOT_ACCEPTABLE);
         }
-
+        ArrayList <Author> aut = new ArrayList<>();
+        Authors authors = new Authors();
+        AuthorService authorService = new AuthorService();
+        for(Author author : book.getAuthor())
+        {
+            Author find = authors.findBy(author.getFirstName(), author.getLastName());
+            if(find == null)
+            {
+                Author a = authorService.addAuthor(author);
+                aut.add(a);
+            }
+            else {
+                aut.add(find);
+            }
+        }
+        book.setAuthor(aut);
         return new ResponseEntity<>(booksService.updateBook(id,book), HttpStatus.OK);
     }
 
@@ -53,7 +68,22 @@ public class BooksController {
         if (BookValidator.isInValidBook(book.getTitle(), book.getPages(), book.getAuthor())) {
             return new ResponseEntity<>("Invalid data", HttpStatus.NOT_ACCEPTABLE);
         }
-      
+        ArrayList <Author> aut = new ArrayList<>();
+        Authors authors = new Authors();
+        AuthorService authorService = new AuthorService();
+        for(Author author : book.getAuthor())
+        {
+             Author find = authors.findBy(author.getFirstName(), author.getLastName());
+            if(find == null)
+            {
+                Author a = authorService.addAuthor(author);
+                aut.add(a);
+            }
+            else {
+                aut.add(find);
+            }
+        }
+        book.setAuthor(aut);
         return new ResponseEntity<>(booksService.addBook(book), HttpStatus.OK);
     }
 }
