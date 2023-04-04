@@ -31,8 +31,29 @@ public class AuthorService implements IAuthorService {
         if (aut == null) {
             return null;
         }
+
         aut.setFirstName(author.getFirstName());
         aut.setLastName(author.getLastName());
+        BooksService booksService = new BooksService();
+        Collection <Book> books = booksService.getBooks();
+        for(Book b : books)
+        {
+            List <Author> authors = b.getAuthor();
+            List <Author> updateAut = new ArrayList<>();
+           for(Author a : authors)
+           {
+               if(a.getId() == aut.getId())
+               {
+                   updateAut.add(aut);
+               }
+               else {
+                   updateAut.add(a);
+               }
+
+           }
+           b.setAuthor(updateAut);
+        }
+
         return aut;
     }
 
