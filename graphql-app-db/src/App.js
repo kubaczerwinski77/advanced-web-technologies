@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const uri =
-  "mongodb+srv://karo:Piosenka_6@graphql.ngknp7d.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://karo:karo@graphql.ngknp7d.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(uri)
