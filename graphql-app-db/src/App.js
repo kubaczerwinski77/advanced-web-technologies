@@ -5,10 +5,11 @@ import { join } from "node:path";
 import axios from "axios";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import { devNull } from "node:os";
 dotenv.config();
 
 const uri =
-  "mongodb+srv://karo:karo@graphql.ngknp7d.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://karo:Piosenka_6@graphql.ngknp7d.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(uri)
@@ -61,15 +62,19 @@ export const schema = createSchema({
       deleteUser: async (_, { id }) => {
         try {
           if (await User.findById(id)) {
-            await User.findByIdAndRemove(id);
-            return "User deleted";
+            if ((await ToDoItem.find({ user_id: id })).length== 0) {
+              await User.findByIdAndRemove(id);
+              return "User deleted";
+            } else {
+              return "User has ToDoItems";
+            }
           }
           return "Not user found";
         } catch (err) {
           throw new Error(err);
         }
       },
-      updateUser: async (_, { id, name, email, login }) => {
+      updateUser: async (parent, { id, name, email, login }) => {
         try {
           if (await User.findById(id)) {
             return await User.findByIdAndUpdate(
