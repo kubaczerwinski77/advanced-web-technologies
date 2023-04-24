@@ -33,25 +33,50 @@ io.on("connection", (socket) => {
     };
   });
 
-  socket.on(Events.SEND_MESSAGE, (data) => {
-    console.log(`Message from ${socket.id}: ${data}`);
-    socket.broadcast.emit(Events.RECEIVE_MESSAGE, {
-      message: data,
+  socket.on(Events.USER_JOINED, (room) => {
+    console.log(`User ${socket.id} joined room ${room}`);
+    socket.join(room);
+    socket.to(room).emit(Events.USER_JOINED, {
       name: serverData.users[socket.id].name,
+      date: new Date().toISOString(),
+      message: `${serverData.users[socket.id].name} joined the room`,
+      socketId: socket.id,
     });
   });
 
-  socket.on(Events.USER_TYPING, () => {
+  socket.on(Events.USER_LEFT, (room) => {
+    console.log(`User ${socket.id} left room ${room}`);
+    socket.to(room).emit(Events.USER_LEFT, {
+      name: serverData.users[socket.id].name,
+      date: new Date().toISOString(),
+      message: `${serverData.users[socket.id].name} left the room`,
+      socketId: socket.id,
+    });
+    socket.leave(room);
+  });
+
+  socket.on(Events.SEND_MESSAGE, (data) => {
+    console.log({ data });
+    console.log(`Message from ${socket.id}: ${data}`);
+    socket.to(data.room).emit(Events.RECEIVE_MESSAGE, {
+      name: serverData.users[socket.id].name,
+      date: data.date,
+      message: data.message,
+      socketId: socket.id,
+    });
+  });
+
+  socket.on(Events.USER_TYPING, (room) => {
     console.log(`User ${socket.id} is typing`);
-    socket.broadcast.emit(Events.USER_TYPING, {
+    socket.to(room).emit(Events.USER_TYPING, {
       name: serverData.users[socket.id].name,
       socketId: socket.id,
     });
   });
 
-  socket.on(Events.USER_STOPPED_TYPING, () => {
+  socket.on(Events.USER_STOPPED_TYPING, (room) => {
     console.log(`User ${socket.id} stopped typing`);
-    socket.broadcast.emit(Events.USER_STOPPED_TYPING, {
+    socket.to(room).emit(Events.USER_STOPPED_TYPING, {
       name: serverData.users[socket.id].name,
       socketId: socket.id,
     });

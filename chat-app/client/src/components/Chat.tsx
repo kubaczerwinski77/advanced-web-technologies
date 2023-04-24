@@ -2,16 +2,22 @@ import { Button, Flex, Input, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { Socket } from "socket.io-client";
 import { Events } from "../events/events";
+import { MenuState, RoomNames } from "../utils/utils";
 
 interface IProps {
   socket: Socket;
+  room: RoomNames;
+  setMenu: (menu: MenuState) => void;
 }
 
-const Chat: React.FC<IProps> = ({ socket }) => {
+const Chat: React.FC<IProps> = ({ socket, room, setMenu }) => {
   const [messages, setMessages] = useState<
     {
       from: string;
       msg: string;
+      date: string;
+      socketId: string;
+      type?: "join-leave" | "image";
     }[]
   >([]);
   const [message, setMessage] = useState("");
@@ -21,23 +27,32 @@ const Chat: React.FC<IProps> = ({ socket }) => {
   const lastMessageRef = useRef<HTMLDivElement>(null);
 
   const sendUserTyping = () => {
-    socket.emit(Events.USER_TYPING);
+    socket.emit(Events.USER_TYPING, room);
   };
 
   const sendUserStoppedTyping = () => {
-    socket.emit(Events.USER_STOPPED_TYPING);
+    socket.emit(Events.USER_STOPPED_TYPING, room);
   };
 
   const sendMessage = () => {
     if (message.length === 0) {
       return;
     }
-    socket.emit(Events.SEND_MESSAGE, message);
+    const now = new Date();
+    const isoString = now.toISOString();
+
+    socket.emit(Events.SEND_MESSAGE, {
+      message,
+      date: isoString,
+      room,
+    });
     setMessages((messages) => [
       ...messages,
       {
         from: "You",
         msg: message,
+        date: isoString,
+        socketId: socket.id,
       },
     ]);
     setMessage("");
@@ -56,6 +71,32 @@ const Chat: React.FC<IProps> = ({ socket }) => {
         {
           from: data.name,
           msg: data.message,
+          date: data.date,
+          socketId: data.socketId,
+        },
+      ]);
+    });
+    socket.on(Events.USER_JOINED, (data) => {
+      setMessages((messages) => [
+        ...messages,
+        {
+          from: data.name,
+          msg: data.message,
+          date: data.date,
+          socketId: data.socketId,
+          type: "join-leave",
+        },
+      ]);
+    });
+    socket.on(Events.USER_LEFT, (data) => {
+      setMessages((messages) => [
+        ...messages,
+        {
+          from: data.name,
+          msg: data.message,
+          date: data.date,
+          socketId: data.socketId,
+          type: "join-leave",
         },
       ]);
     });
@@ -74,6 +115,8 @@ const Chat: React.FC<IProps> = ({ socket }) => {
       socket.off(Events.RECEIVE_MESSAGE);
       socket.off(Events.USER_TYPING);
       socket.off(Events.USER_STOPPED_TYPING);
+      socket.off(Events.USER_JOINED);
+      socket.off(Events.USER_LEFT);
     };
   }, []);
 
@@ -85,14 +128,33 @@ const Chat: React.FC<IProps> = ({ socket }) => {
       height="100vh"
       gap={4}
     >
-      <Text
-        fontSize="4xl"
-        fontWeight="bold"
-        color="gray.700"
-        textAlign="center"
+      <Flex
+        flexDirection="row"
+        alignItems="end"
+        justifyContent="space-between"
+        width="100%"
+        maxWidth="500px"
       >
-        Chat
-      </Text>
+        <Button
+          onClick={() => {
+            socket.emit(Events.USER_LEFT, room);
+            setMenu(MenuState.LOBBY);
+          }}
+          size="sm"
+        >
+          Leave
+        </Button>
+        <Text
+          fontSize="4xl"
+          fontWeight="bold"
+          color="gray.700"
+          textAlign="center"
+          lineHeight={1}
+        >
+          Chat
+        </Text>
+        <Flex width="80px"></Flex>
+      </Flex>
       <Flex
         flexDirection="column"
         height="400px"
@@ -105,45 +167,82 @@ const Chat: React.FC<IProps> = ({ socket }) => {
         overflow="auto"
         gap={1}
       >
-        {messages.map((message, index, arr) => (
-          <Flex
-            key={index}
-            flexDirection="column"
-            alignItems={message.from === "You" ? "flex-end" : "flex-start"}
-            ref={index === arr.length - 1 ? lastMessageRef : undefined}
-          >
-            {
-              // Only show the name if this is the first message from this user
-              // or if the previous message was from a different user
-              (index === 0 || message.from !== arr[index - 1].from) && (
+        {messages.map((message, index, arr) =>
+          message.type === "join-leave" ? (
+            <Flex
+              key={message.socketId + message.type + message.date}
+              flexDirection="column"
+              alignItems="center"
+              ref={index === arr.length - 1 ? lastMessageRef : undefined}
+            >
+              <Text
+                fontSize="sm"
+                color="gray.500"
+                textAlign="center"
+                width="100%"
+              >
+                {message.msg}
+              </Text>
+            </Flex>
+          ) : (
+            <Flex
+              key={message.socketId + message.type + message.date}
+              flexDirection="column"
+              alignItems={message.from === "You" ? "flex-end" : "flex-start"}
+              ref={index === arr.length - 1 ? lastMessageRef : undefined}
+            >
+              {
+                // Show the name of the user only if the previous message is from a different user even if first message is about join/leave
+                index === 0 ||
+                arr[index - 1].socketId !== message.socketId ||
+                arr[index - 1].type === "join-leave" ? (
+                  <Text
+                    fontSize="sm"
+                    color="gray.500"
+                    textAlign={message.from === "You" ? "end" : "start"}
+                    width="100%"
+                  >
+                    {message.from}
+                  </Text>
+                ) : null
+              }
+              <Flex
+                flexDirection={message.from === "You" ? "row-reverse" : "row"}
+                alignItems="center"
+                gap={2}
+              >
                 <Text
-                  fontSize="sm"
+                  fontSize="md"
+                  color="gray.700"
+                  textAlign={message.from === "You" ? "end" : "start"}
+                  background={
+                    message.from === "You"
+                      ? "gray.100"
+                      : "linear-gradient(90deg, #FEE140 0%, #FA709A 100%)"
+                  }
+                  padding="0.5rem 1rem"
+                  borderRadius={
+                    message.from === "You"
+                      ? "50px 0 50px 50px"
+                      : "0 50px 50px 50px"
+                  }
+                >
+                  {message.msg}
+                </Text>
+                <Text
+                  fontSize="xx-small"
                   color="gray.500"
                   textAlign={message.from === "You" ? "end" : "start"}
                 >
-                  {message.from}
+                  {new Date(message.date).toLocaleTimeString("en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </Text>
-              )
-            }
-            <Text
-              fontSize="md"
-              color="gray.700"
-              textAlign={message.from === "You" ? "end" : "start"}
-              background={
-                message.from === "You"
-                  ? "gray.100"
-                  : "linear-gradient(90deg, #FEE140 0%, #FA709A 100%)"
-              }
-              padding="0.5rem 1rem"
-              borderRadius={
-                message.from === "You" ? "50px 0 50px 50px" : "0 50px 50px 50px"
-              }
-              maxWidth="70%"
-            >
-              {message.msg}
-            </Text>
-          </Flex>
-        ))}
+              </Flex>
+            </Flex>
+          )
+        )}
 
         <Text
           fontSize="xx-small"

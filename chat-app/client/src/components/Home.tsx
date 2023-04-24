@@ -21,7 +21,7 @@ const Home: React.FC<IProps> = ({ setMenu, socket }) => {
   const handleStartChat = () => {
     if (name.length > 0) {
       socket.emit(Events.SET_NAME, { name });
-      setMenu(MenuState.CHAT);
+      setMenu(MenuState.LOBBY);
     } else {
       setError(true);
     }
@@ -42,7 +42,8 @@ const Home: React.FC<IProps> = ({ setMenu, socket }) => {
         placeholder="Name"
         value={name}
         onChange={handleNameChange}
-        maxWidth={["100%", "50%"]}
+        width="600px"
+        errorBorderColor="red.500"
       />
       <Text color="red.500">{error && "Please enter a name"}</Text>
       <Button
