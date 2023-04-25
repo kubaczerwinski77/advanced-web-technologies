@@ -25,6 +25,10 @@ const serverData = {
 io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
 
+  socket.on("connect_error", (err) => {
+    console.log(`connect_error due to ${err.message}`);
+  });
+
   socket.on(Events.SET_NAME, (data) => {
     console.log(`User ${socket.id} set name to ${data.name}`);
     serverData.users[socket.id] = {
@@ -63,6 +67,7 @@ io.on("connection", (socket) => {
       date: data.date,
       message: data.message,
       socketId: socket.id,
+      type: data.type,
     });
   });
 
